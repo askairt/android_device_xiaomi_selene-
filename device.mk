@@ -109,10 +109,6 @@ PRODUCT_PACKAGES += \
     libldacBT_dec \
     libbtconfigstore
 
-# Camera
-PRODUCT_PACKAGES += \
-    Snap
-
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
