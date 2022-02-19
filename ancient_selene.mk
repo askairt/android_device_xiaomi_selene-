@@ -27,7 +27,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/ancient/config/common_full_phone.mk)
+
+# Inherit some common AncientOS
+ANCIENT_OFFICIAL := true
+IS_PHONE := true
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_GAPPS_ARCH := arm64
+TARGET_USES_BLUR := true
 
 #
 # All components inherited here go to system_ext image
@@ -37,7 +44,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := selene
-PRODUCT_NAME := lineage_selene
+PRODUCT_NAME := ancient_selene
 PRODUCT_BRAND := Redmi
 PRODUCT_MANUFACTURER := xiaomi
 
@@ -48,3 +55,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="selene-user 11 RP1A.200720.0
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := Redmi/selene_eea/selene:11/RP1A.200720.011/V12.5.1.0.RKUEUXM:user/release-keys
+
