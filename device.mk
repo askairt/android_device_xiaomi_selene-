@@ -24,6 +24,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/selene/selene-vendor.mk)
+$(call inherit-product, vendor/xiaomi/mt6768-ims/mt6768-ims-vendor.mk)
+
+# Dirac
+$(call inherit-product, vendor/dirac/config.mk)
+
+# Dirac
+$(call inherit-product, vendor/dirac/config.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -288,6 +295,7 @@ PRODUCT_PACKAGES += \
     factory_init.project.rc \
     factory_init.rc \
     init.ago.rc \
+    xiaomiparts.sh \
     init.connectivity.rc \
     init.mi_thermald.rc \
     init.modem.rc \
@@ -301,9 +309,14 @@ PRODUCT_PACKAGES += \
     meta_init.project.rc \
     meta_init.rc \
     multi_init.rc \
+    init.xiaomi_parts.rc \
     fstab.mt6768 \
     ueventd.mtk.rc
 
+# XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+	
 # Fstab
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.mt6768
